@@ -4,6 +4,7 @@ function App() {
     const [darkMode, setDarkMode] = useState(true);
     const [formStatus, setFormStatus] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
     
     const roles = ["Student","Learner","Problem Solver"];
     const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -55,12 +56,28 @@ function App() {
             {/* Header */}
             <header className="header">
                 <a href="#" className="logo">DK</a>
-                <nav className="navbar">
-                    <a href="#home" className="active">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#journey">Journey</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#contact">Contact</a>
+                
+                {/* Mobile Hamburger Menu Icon */}
+                <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+                    <i className={menuOpen ? 'bx bx-x' : 'bx bx-menu'}></i>
+                </div>
+
+                <nav className={`navbar ${menuOpen ? 'active' : ''}`}>
+                    <a href="#home" className="active" onClick={() => setMenuOpen(false)}>
+                        <img src={darkMode ? "profile-dark.jpg" : "profile-light.jpg"} alt="" className="nav-thumb" /> Home
+                    </a>
+                    <a href="#about" onClick={() => setMenuOpen(false)}>
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=100&auto=format&fit=crop&q=60" alt="" className="nav-thumb" /> About
+                    </a>
+                    <a href="#journey" onClick={() => setMenuOpen(false)}>
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=100&auto=format&fit=crop&q=60" alt="" className="nav-thumb" /> Journey
+                    </a>
+                    <a href="#skills" onClick={() => setMenuOpen(false)}>
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=100&auto=format&fit=crop&q=60" alt="" className="nav-thumb" /> Skills
+                    </a>
+                    <a href="#contact" onClick={() => setMenuOpen(false)}>
+                        <img src="https://images.unsplash.com/photo-1423784346385-c1d4dac9093a?w=100&auto=format&fit=crop&q=60" alt="" className="nav-thumb" /> Contact
+                    </a>
                     <i className={`bx ${darkMode ? 'bx-sun' : 'bx-moon'}`} id="darkMode-icon" onClick={() => setDarkMode(!darkMode)}></i>
                 </nav>
             </header>
@@ -68,17 +85,17 @@ function App() {
             {/* Hero Section */}
             <section className="hero" id="home">
                 <div className="hero-content">
-                    <h1>Hi, I'm {portfolioData.personal.name}</h1>
+                    <h1>Hi, I'm Dileep Kamineni</h1>
                     <h3 className="rotating-role">And I'm a <span>{roles[currentRoleIndex]}</span></h3>
-                    <p>{portfolioData.personal.bio}</p>
+                    <p>Computer Science Engineering graduate specializing in Artificial Intelligence and Machine Learning. Experienced in building automation and software apps.</p>
                     <div className="btn-box">
                         <a href="#contact" className="btn">Hire Me</a>
                         <a href="#about" className="btn secondary">Let's Talk</a>
                     </div>
                     <div className="social-media">
-                        <a href={portfolioData.personal.github} target="_blank"><i className='bx bxl-github'></i></a>
-                        <a href={portfolioData.personal.linkedin} target="_blank"><i className='bx bxl-linkedin'></i></a>
-                        <a href={`mailto:${portfolioData.personal.email}`}><i className='bx bxs-envelope'></i></a>
+                        <a href="https://github.com" target="_blank"><i className='bx bxl-github'></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i className='bx bxl-linkedin'></i></a>
+                        <a href="mailto:dileepkamineni@gmail.com"><i className='bx bxs-envelope'></i></a>
                     </div>
                 </div>
                 <div className="hero-img-container">
@@ -95,7 +112,7 @@ function App() {
                 <h2 className="heading">About <span>Me</span></h2>
                 <div className="about-content">
                     <p>
-                        As a Computer Science Engineering student, I combine solid technical skills with a passion for building smart automation, interactive web apps, and IoT hardware prototypes.
+                        As a Computer Science Engineering graduate, I combine solid technical skills with a passion for building smart automation, interactive web apps, and IoT hardware prototypes.
                     </p>
                     <p>Based in Bangalore, I love creating clean, efficient solutions to real-world problems.</p>
                     <a href="Resume.pdf" download className="btn">Download Resume</a>
@@ -106,7 +123,6 @@ function App() {
             <section className="section" id="journey">
                 <h2 className="heading">My <span>Journey</span></h2>
                 
-                {/* Education Triangle Layout */}
                 <div className="education-triangle">
                     <h3 className="education-heading">Education</h3>
                     <div className="triangle-top">
@@ -136,30 +152,36 @@ function App() {
                 <h2 className="heading">My <span>Skills</span></h2>
                 
                 <div className="skills-triangle">
-                    {/* Top Apex of the Triangle */}
                     <div className="skills-triangle-top">
                         <div className="skill-box">
-                            <h3>{portfolioData.skills[0].category}</h3>
+                            <h3>Programming Languages</h3>
                             <div className="skill-tags">
-                                {portfolioData.skills[0].items.map((item, i) => (
-                                    <span key={i} className="skill-tag">{item}</span>
-                                ))}
+                                <span className="skill-tag">Core Java</span>
+                                <span className="skill-tag">Python</span>
+                                <span className="skill-tag">JavaScript</span>
                             </div>
                         </div>
                     </div>
 
-                    {/* Bottom Base of the Triangle */}
                     <div className="skills-triangle-bottom">
-                        {portfolioData.skills.slice(1).map((group, idx) => (
-                            <div key={idx} className="skill-box">
-                               <h3>{group.category}</h3>
-                                <div className="skill-tags">
-                                    {group.items.map((item, i) => (
-                                        <span key={i} className="skill-tag">{item}</span>
-                                    ))}
-                                </div>
+                        <div className="skill-box">
+                           <h3>Web Technologies</h3>
+                            <div className="skill-tags">
+                                <span className="skill-tag">HTML</span>
+                                <span className="skill-tag">CSS</span>
+                                <span className="skill-tag">JDBC</span>
+                                <span className="skill-tag">MySQL</span>
                             </div>
-                        ))}
+                        </div>
+                        <div className="skill-box">
+                           <h3>Tools & Soft Skills</h3>
+                            <div className="skill-tags">
+                                <span className="skill-tag">Visual Studio Code</span>
+                                <span className="skill-tag">GitHub</span>
+                                <span className="skill-tag">Problem Solving</span>
+                                <span className="skill-tag">Team Management</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -176,7 +198,7 @@ function App() {
                             <i className='bx bx-envelope'></i>
                             <div>
                                 <span className="card-label">Email</span>
-                                <span className="card-value">{portfolioData.personal.email}</span>
+                                <span className="card-value">dileepkamineni@gmail.com</span>
                             </div>
                         </div>
 
@@ -184,17 +206,17 @@ function App() {
                             <i className='bx bx-phone'></i>
                             <div>
                                 <span className="card-label">Phone</span>
-                                <span className="card-value">+91 98765 43210</span>
+                                <span className="card-value">+91 9398083208</span>
                             </div>
                         </div>
 
                         <div className="contact-socials-row">
                             <span>Reach out to us on:</span>
                             <div className="contact-social-icons">
-                                <a href={portfolioData.personal.github} target="_blank"><i className='bx bxl-facebook'></i></a>
-                                <a href="#" target="_blank"><i className='bx bxl-twitter'></i></a>
-                                <a href="https://www.instagram.com/dillu_14_?igsh=c3hzdWRrNHRod3Fr" target="_blank"><i className='bx bxl-instagram'></i></a>
-                                <a href={portfolioData.personal.linkedin} target="_blank"><i className='bx bxl-linkedin'></i></a>
+                                <a href="https://github.com" target="_blank"><i className='bx bxl-facebook'></i></a>
+                                <a href="https://twitter.com" target="_blank"><i className='bx bxl-twitter'></i></a>
+                                <a href="https://www.instagram.com/dillu_14_" target="_blank"><i className='bx bxl-instagram'></i></a>
+                                <a href="https://linkedin.com" target="_blank"><i className='bx bxl-linkedin'></i></a>
                             </div>
                         </div>
                     </div>
@@ -226,7 +248,7 @@ function App() {
 
             {/* Footer */}
             <footer className="footer">
-                <p>&copy; 2026 {portfolioData.personal.name}. All rights reserved.</p>
+                <p>&copy; 2026 Dileep Kamineni. All rights reserved.</p>
             </footer>
         </div>
     );

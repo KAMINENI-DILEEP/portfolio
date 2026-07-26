@@ -76,9 +76,17 @@ function App() {
                         <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=100&auto=format&fit=crop&q=60" alt="" className="nav-thumb" /> Skills
                     </a>
                     <a href="#contact" onClick={() => setMenuOpen(false)}>
+                        {/* Small thumbnail icon added specifically for the Contact link */}
                         <img src="https://images.unsplash.com/photo-1423784346385-c1d4dac9093a?w=100&auto=format&fit=crop&q=60" alt="" className="nav-thumb" /> Contact
                     </a>
-                    <i className={`bx ${darkMode ? 'bx-sun' : 'bx-moon'}`} id="darkMode-icon" onClick={() => setDarkMode(!darkMode)}></i>
+                    <i 
+                        className={`bx ${darkMode ? 'bx-sun' : 'bx-moon'}`} 
+                        id="darkMode-icon" 
+                        onClick={() => {
+                            setDarkMode(!darkMode);
+                            setMenuOpen(false); // Automatically closes the mobile dropdown when toggling theme
+                        }}
+                    ></i>
                 </nav>
             </header>
 
@@ -119,7 +127,7 @@ function App() {
                 </div>
             </section>
 
-          {/* Journey Section */}
+            {/* Journey Section */}
             <section className="section" id="journey">
                 <h2 className="heading">My <span>Journey</span></h2>
                 

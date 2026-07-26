@@ -609,22 +609,19 @@ body.dark-mode .hero-img-container {
         width: 100% !important;
     }
 
+    /* Completely hides the profile photo container on mobile */
     .hero-img-container {
-        position: relative !important;
-        right: auto !important;
-        top: auto !important;
-        width: 100% !important;
-        max-width: 320px;
-        height: 380px;
-        margin: 30px auto 0 auto !important;
+        display: none !important;
     }
 
+    /* Fixes sections, grids, and contact wrappers on mobile */
     .section, .skills-triangle, .skills-triangle-bottom, .education-triangle, .triangle-bottom, .journey-grid, .contact-wrapper-ref, .footer {
         width: 100% !important;
         padding: 40px 20px !important;
         grid-template-columns: 1fr !important;
         display: flex !important;
         flex-direction: column !important;
+        gap: 30px !important;
     }
 
     .skills-triangle-top, .triangle-top {
@@ -633,6 +630,20 @@ body.dark-mode .hero-img-container {
 
     .about-content, .contact-form {
         width: 100% !important;
+    }
+
+    /* Fixes contact form inner card padding and alignment overlap */
+    .contact-right-form {
+        width: 100% !important;
+        padding: 20px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .contact-wrapper-ref {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
     }
 
     .input-box {

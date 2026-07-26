@@ -586,7 +586,8 @@ body.dark-mode .hero-img-container {
     border-top: 1px solid rgba(0,0,0,0.05);
     text-align: center;
 }
-/* Hide menu toggle and nav-thumb by default on desktop */
+
+/* Hide menu toggle by default on desktop */
 .menu-icon {
     display: none;
     font-size: 26px;
@@ -594,6 +595,7 @@ body.dark-mode .hero-img-container {
     cursor: pointer;
 }
 
+/* Thumbnail icon next to mobile dropdown links */
 .nav-thumb {
     width: 22px;
     height: 22px;

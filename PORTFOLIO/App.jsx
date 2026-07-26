@@ -76,7 +76,6 @@ function App() {
                         <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=100&auto=format&fit=crop&q=60" alt="" className="nav-thumb" /> Skills
                     </a>
                     <a href="#contact" onClick={() => setMenuOpen(false)}>
-                        {/* Small thumbnail icon added specifically for the Contact link */}
                         <img src="https://images.unsplash.com/photo-1423784346385-c1d4dac9093a?w=100&auto=format&fit=crop&q=60" alt="" className="nav-thumb" /> Contact
                     </a>
                     <i 
@@ -84,7 +83,7 @@ function App() {
                         id="darkMode-icon" 
                         onClick={() => {
                             setDarkMode(!darkMode);
-                            setMenuOpen(false); // Automatically closes the mobile dropdown when toggling theme
+                            setMenuOpen(false);
                         }}
                     ></i>
                 </nav>
